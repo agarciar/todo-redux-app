@@ -32,6 +32,7 @@ export class TodoItemComponent implements OnInit {
 
   editar() {
     this.editando = true;
+    this.txtInput.setValue(this.todo.texto);
     setTimeout(() => this.txtInputFisico.nativeElement.select(), 1);
   }
 
