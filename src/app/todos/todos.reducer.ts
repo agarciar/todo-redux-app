@@ -4,9 +4,13 @@ import { crearTodo } from './todos.actions';
 
 export const todosFeatureKey = 'todos';
 
-export const initialState: Todo[] = [];
+export const initialState: Todo[] = [
+  new Todo('Salvar el mundo'),
+  new Todo('Buscar las gemas el infinito'),
+  new Todo('Resucitar a Iron man')
+];
 
-export const reducer = createReducer(
+export const todosReducer = createReducer(
   initialState,
   on(crearTodo, (state, { texto }) => [...state, new Todo(texto)])
 );
