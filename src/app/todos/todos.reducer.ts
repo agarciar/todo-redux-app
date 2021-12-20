@@ -1,6 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
 import { Todo } from './models/todo.model';
-import { crearTodo, editarTodo, toggleTodo } from './todos.actions';
+import {
+  crearTodo,
+  editarTodo,
+  eliminarTodo,
+  toggleAll,
+  toggleTodo,
+} from './todos.actions';
 
 export const todosFeatureKey = 'todos';
 
@@ -30,5 +36,9 @@ export const todosReducer = createReducer(
         return todo;
       }
     })
+  ),
+  on(eliminarTodo, (state, { id }) => state.filter((todo) => todo.id !== id)),
+  on(toggleAll, (state, { completado }) =>
+    state.map((todo) => ({ ...todo, completado }))
   )
 );

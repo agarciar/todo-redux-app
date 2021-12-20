@@ -13,3 +13,13 @@ export const editarTodo = createAction(
   '[Todo] Editar',
   props<{ id: number; texto: string }>()
 );
+
+export const eliminarTodo = createAction(
+  '[Todo] Eliminar',
+  props<{ id: number }>()
+);
+
+export const toggleAll = createAction(
+  '[Todo] ToggleAll',
+  props<{ completado: boolean }>()
+);
