@@ -7,14 +7,14 @@ import { FooterComponent } from './footer/footer.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { todosReducer } from './todos/todos.reducer';
+import { appReducers } from './app.reducer';
 
 @NgModule({
   declarations: [AppComponent, FooterComponent],
   imports: [
     BrowserModule,
     TodosModule,
-    StoreModule.forRoot({todos: todosReducer}),
+    StoreModule.forRoot(appReducers),
     // Instrumentation must be imported after importing StoreModule (config is optional)
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
